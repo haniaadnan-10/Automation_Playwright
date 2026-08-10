@@ -14,9 +14,17 @@ test('End To End Action', async ({page}) => {
 
     await expect(page.locator('//*[@id="remove-sauce-labs-backpack"]')).toHaveText("Remove");
 
+    await page.click('//*[@id="add-to-cart-sauce-labs-fleece-jacket"]');
+
+    await expect(page.locator('//*[@id="remove-sauce-labs-fleece-jacket"]')).toHaveText("Remove")
+
     await page.click('//*[@id="shopping_cart_container"]/a');
 
     await expect(page).toHaveURL('https://www.saucedemo.com/cart.html');
+
+    await expect(page.locator('//*[@id="item_4_title_link"]/div')).toHaveText("Sauce Labs Backpack");
+
+    await expect(page.locator('//*[@id="item_5_title_link"]/div')).toHaveText("Sauce Labs Fleece Jacket");
 
     await page.click('//*[@id="checkout"]');
 
@@ -27,7 +35,12 @@ test('End To End Action', async ({page}) => {
     await page.fill('#postal-code', '0000');
     await page.click('#continue');
 
+    //Chceckout overview page
     await expect(page.locator('//*[@id="header_container"]/div[2]/span')).toHaveText("Checkout: Overview");
+
+    await expect(page.locator('//*[@id="item_4_title_link"]/div')).toHaveText("Sauce Labs Backpack");
+
+    await expect(page.locator('//*[@id="item_5_title_link"]/div')).toHaveText("Sauce Labs Fleece Jacket");
 
     await page.click('#finish');
 
@@ -45,7 +58,6 @@ test('End To End Action', async ({page}) => {
     await page.click('#logout_sidebar_link');
 
     await expect(page).toHaveURL('https://www.saucedemo.com/');
-
 
 });
 

@@ -10,6 +10,14 @@ test('Login Test Case', async ({page}) => {
     
 });
 
+test('Login Test Case with valid credentials', async ({page}) => {
+    await page.goto('https://www.saucedemo.com/');
+    await page.fill('#user-name', 'problem_user');
+    await page.fill('#password', 'secret_sauce');
+    await page.click('#login-button');
+    await expect(page.locator('//*[@id="header_container"]/div[2]/span')).toHaveText("Products");
+});
+
 //invalid username and valid password
 test('Login Test Case With Invalid Username & valid password', async ({page}) => {
     await page.goto('https://www.saucedemo.com/');
