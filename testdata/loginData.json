@@ -19,5 +19,11 @@
              "username": "visual_user",
             "password": "secret_sauce"
         }
-    ]
+    ],
+    "Users": [
+    {
+      "Username": "haristester01",
+      "Password": "haristester01"
+    }
+  ]
 }

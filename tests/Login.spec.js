@@ -13,5 +13,18 @@ LoginData.ValidUsers.forEach((data) => {
     await expect(page.locator('//*[@id="header_container"]/div[2]/span')).toHaveText("Products");
     
 }); 
+});
 
+LoginData.Users.forEach((dataofHotel) => {
+
+   //Valid username and valid password
+    test(`Login Test Case for Acadetin hotel ${data.username}`, async ({page}) => {
+
+    await page.goto('https://adactinhotelapp.com/');
+    await page.fill('#Username ', dataofHotel.Username);
+    await page.fill('#Password ', dataofHotel.Password);
+    await page.click('#login');
+    await expect(page.locator('.welcome_menu')).toHaveText("Welcome to Adactin Group of Hotels");
+    
+}); 
 });
