@@ -39,4 +39,4 @@ class productPage {
     }
 }
 
-export default ProductPage;
+export default productPage;
