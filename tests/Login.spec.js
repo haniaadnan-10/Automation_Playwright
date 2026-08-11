@@ -17,7 +17,7 @@ LoginData.ValidUsers.forEach((data) => {
 
 LoginData.Users.forEach((dataofHotel) => {
 
-   //Valid username and valid password
+   //Valid username and valid password for hotel app
     test(`Login Test Case for Acadetin hotel ${dataofHotel.username}`, async ({page}) => {
 
     await page.goto('https://adactinhotelapp.com/');

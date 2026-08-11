@@ -1,0 +1,33 @@
+{
+    "ValidUsers": [
+        {
+            "username": "standard_user",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Products"
+        },
+
+        {
+             "username": "problem_user",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Products"
+        },
+
+        {
+             "username": "performance_glitch_user",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Products"
+        },
+
+        {
+             "username": "error_user",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Products"
+        },
+
+        {
+             "username": "visual_user",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Products"
+        }
+    ]
+}
