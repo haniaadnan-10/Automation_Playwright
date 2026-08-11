@@ -1,4 +1,4 @@
-class LoginPage{
+class loginPage{
 
     constructor(page)
     {
@@ -21,4 +21,4 @@ class LoginPage{
     }
 }
 
-export default LoginPage;
+export default loginPage;

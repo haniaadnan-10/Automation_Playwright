@@ -1,30 +1,16 @@
 import {test, expect} from '@playwright/test';
-import LoginData from '../testdata/loginData.json';
+import loginData from '../testdata/loginData.json';
+import loginPage from '../Pages/loginPage';
 
-LoginData.ValidUsers.forEach((data) => {
 
    //Valid username and valid password
-    test(`Login Test Case ${data.username}`, async ({page}) => {
+    test(`Login Test Case`, async ({page}) => {
 
-    await page.goto('https://www.saucedemo.com/');
-    await page.fill('#user-name', data.username);
-    await page.fill('#password', data.password);
-    await page.click('#login-button');
-    await expect(page.locator('//*[@id="header_container"]/div[2]/span')).toHaveText("Products");
+    const login = new loginPage(page);
+    const data = loginData.ValidUsers[0];
+
+    await login.gotoURL();
+    await login.Login(data.username, data.password);
+    await expect((login.message)).toHaveText(data.ExpectedMsg);
     
 }); 
-});
-
-LoginData.Users.forEach((dataofHotel) => {
-
-   //Valid username and valid password for hotel app
-    test(`Login Test Case for Acadetin hotel ${dataofHotel.username}`, async ({page}) => {
-
-    await page.goto('https://adactinhotelapp.com/');
-    await page.fill('#username', dataofHotel.Username);
-    await page.fill('#password', dataofHotel.Password);
-    await page.click('#login');
-    await expect(page.locator('.welcome_menu').first()).toHaveText("Welcome to Adactin Group of Hotels");
-    
-}); 
-});
