@@ -5,7 +5,8 @@ import AddToCart from '../Pages/addToCart';
 import addToCartData from '../testdata/addToCart.json';
 import addToCart from '../Pages/addToCart';
 
-
+/*
+//All products tested separately
 addToCartData.products.forEach((product) => {
 
     test(`Add ${product.productName} test case`, async ({ page }) => {
@@ -31,4 +32,25 @@ addToCartData.products.forEach((product) => {
 
     });
 
-});
+});*/
+
+//multiple products added at once
+test('Multiple products added', async ({page}) => {
+
+    const loginPage = new LoginPage(page);
+    const data = LoginData.ValidUsers[0];
+
+    await loginPage.gotoURL();
+    await loginPage.Login(data.username, data.password);
+    await expect(loginPage.message).toHaveText(data.ExpectedMsg);
+
+    const Addtocart = new addToCart(page);
+
+    for(const product of addToCartData.products){
+        await Addtocart.addProduct(product.productName);
+    }
+
+    //verfiy cart badge
+    await expect(Addtocart.cartBadge).toHaveText(String(addToCartData.products.length));
+    await Addtocart.openCart();
+})
