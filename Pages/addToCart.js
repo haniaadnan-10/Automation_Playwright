@@ -9,7 +9,8 @@ class addToCart {
         this.cartBadge = page.locator('.shopping_cart_badge');
         this.cartProductName = page.locator('.cart_item .inventory_item_name');
 
-        this.checkoutBtn = page.locator('#checkout')
+        this.checkoutBtn = page.locator('#checkout');
+        this.continueShoppingBtn = page.locator('#continue-shopping');
     }
 
     async gotoURLProduct() {
@@ -17,21 +18,18 @@ class addToCart {
     }
 
     async addProduct(productName) {
-
-        // Find the product by its name
+        //Find the product by its name
         const product = this.product.filter({hasText: productName});
-        // Find Add to cart button INSIDE that product
+        //Find Add to cart button inside that product
         const addToCartButton = product.locator('button.btn_inventory');
 
         await addToCartButton.click();
     }
 
     async removeProduct(productName) {
-
-        // Find the product by its name
+        //Find the product by its name
         const product = this.product.filter({hasText: productName});
-
-        // Find Remove button INSIDE that product
+        //Find Remove button inside that product
         const removeButton = product.locator('button.btn_inventory');
 
         await removeButton.click();
@@ -47,6 +45,10 @@ class addToCart {
 
     async checkoutButton(){
         await this.checkoutBtn.click();
+    }
+
+    async continueShoppingButton(){
+        await this.continueShoppingBtn.click();
     }
 
 

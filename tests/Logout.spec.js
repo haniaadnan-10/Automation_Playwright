@@ -17,4 +17,6 @@ test("Checkout testcase", async ({ page }) => {
 
     await logOut.logout();
 
+    await expect(logOut.loginBtn).toBeVisible();
+
 });

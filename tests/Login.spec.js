@@ -1,6 +1,7 @@
 import {test, expect} from '@playwright/test';
 import loginData from '../testdata/loginData.json';
 import loginPage from '../Pages/loginPage';
+import logout from '../Pages/logout';
 
 
    //Valid username and valid password
@@ -12,5 +13,8 @@ import loginPage from '../Pages/loginPage';
     await login.gotoURL();
     await login.Login(data.username, data.password);
     await expect((login.message)).toHaveText(data.ExpectedMsg);
+
+    const logOut = new logout(page);
+    await logOut.logout();
     
 }); 

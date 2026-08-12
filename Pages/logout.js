@@ -7,7 +7,11 @@ class logout{
         this.logoutBtn = page.locator('#logout_sidebar_link');
         this.allItemsBtn = page.locator('#inventory_sidebar_link');
         this.aboutBtn = page.locator('#about_sidebar_link');
-        this.resetBtn = page.locator('#reset_sidebar_link')
+        this.resetBtn = page.locator('#reset_sidebar_link');
+
+        this.username = page.locator('#user-name');
+        this.password = page.locator('#password');
+        this.loginBtn = page.locator('#login-button');
 
     }
 

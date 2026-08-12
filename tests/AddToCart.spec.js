@@ -4,6 +4,7 @@ import LoginPage from '../Pages/LoginPage';
 import AddToCart from '../Pages/addToCart';
 import addToCartData from '../testdata/addToCart.json';
 import addToCart from '../Pages/addToCart';
+import logout from '../Pages/logout';
 
 /*
 //All products tested separately
@@ -53,4 +54,7 @@ test('Multiple products added', async ({page}) => {
     //verfiy cart badge
     await expect(Addtocart.cartBadge).toHaveText(String(addToCartData.products.length));
     await Addtocart.openCart();
+
+    const logOut = new logout(page);
+    await logOut.logout();
 })

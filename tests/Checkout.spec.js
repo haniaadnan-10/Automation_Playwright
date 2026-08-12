@@ -5,6 +5,7 @@ import AddToCart from '../Pages/addToCart';
 import addToCartData from '../testdata/addToCart.json';
 import checkoutData from '../testdata/checkout.json'
 import checkout from '../Pages/checkout';
+import logout from '../Pages/logout';
 
 test("Checkout testcase", async ({page}) => {
     const login = new LoginPage(page);
@@ -51,6 +52,9 @@ test("Checkout testcase", async ({page}) => {
 
     //Thanyou page
     await expect(checkOut.thankyouOrder).toHaveText('Thank you for your order!');
+
+    const logOut = new logout(page);
+    await logOut.logout();
 
 
 });

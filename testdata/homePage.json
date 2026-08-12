@@ -1,0 +1,20 @@
+{
+    "sortOption": [
+        {
+            "name": "Name A to Z",
+            "value": "az"
+        },
+        {
+            "name": "Name Z to A",
+            "value": "za"
+        },
+        {
+            "name": "Price Low to High",
+            "value": "lohi"
+        },
+        {
+            "name": "Price High to Low",
+            "value": "hilo"
+        }
+    ]
+}
