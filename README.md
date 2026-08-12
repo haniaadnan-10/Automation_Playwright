@@ -1,20 +1,22 @@
 # Playwright Automation Testing
 
-A **QA Automation Testing project using Playwright and JavaScript**, created to practice and demonstrate end-to-end web application testing, Page Object Model (POM), test data management, assertions, and automated test execution.
+A **QA Automation Testing project using Playwright and JavaScript**, created to practice and demonstrate web application automation, Page Object Model (POM), data-driven testing, assertions, and end-to-end testing.
 
 ## 🚀 Project Overview
 
-This project contains automated test cases for **SauceDemo**, covering important application flows such as:
+This project automates the **SauceDemo** e-commerce application and covers the following key user flows:
 
 * User Login
-* Product Page
-* Product Selection
-* Add to Cart
+* Products/Home Page
+* Product Sorting
+* Add Products to Cart
 * Cart Validation
-* Test Data Management
-* End-to-End Testing
+* Checkout
+* Order Completion
+* Logout
+* End-to-End User Flow
 
-The project follows a structured automation framework using **Playwright** and the **Page Object Model (POM)** approach.
+The framework follows the **Page Object Model (POM)** approach to keep test cases organized, reusable, and maintainable.
 
 ## 🛠️ Technologies Used
 
@@ -29,93 +31,144 @@ The project follows a structured automation framework using **Playwright** and t
 ## 📂 Project Structure
 
 ```text
-Automation_Playwright/
+PlaywrightAutomation/
 │
 ├── .github/
 │   └── workflows/
-│       └── ...
+│       └── playwright.yml
 │
 ├── Pages/
-│   ├── LoginPage.js
-│   ├── ProductPage.js
-│   └── AddToCart.js
+│   ├── addToCart.js
+│   ├── checkout.js
+│   ├── homePage.js
+│   ├── loginPage.js
+│   └── logout.js
 │
 ├── testdata/
-│   ├── loginData.json
-│   └── addToCart.json
+│   ├── addToCart.json
+│   ├── checkout.json
+│   ├── homePage.json
+│   └── loginData.json
 │
 ├── tests/
-│   └── ...
+│   ├── AddToCart.spec.js
+│   ├── Checkout.spec.js
+│   ├── EndToEndAction.spec.js
+│   ├── example.spec.js
+│   ├── HomePage.spec.js
+│   ├── Login.spec.js
+│   └── Logout.spec.js
 │
-├── .gitignore
+├── playwright.config.js
 ├── package.json
-├── package-lock.json
-└── playwright.config.js
+└── README.md
 ```
 
 ## 🧪 Testing Approach
 
-The automation framework uses the **Page Object Model (POM)** to keep test cases organized and maintainable.
+### Page Object Model
 
-### Page Objects
-
-Page classes contain:
+Each major application functionality has a dedicated Page Object containing:
 
 * Locators
 * Page actions
 * Reusable methods
 
-This keeps the test cases clean and makes it easier to maintain the automation framework when the application changes.
+This keeps the test cases clean and makes the framework easier to maintain.
 
-### Test Data
+### Data-Driven Testing
 
-Test data is stored separately in JSON files, allowing test cases to use different users and product information without hardcoding the data directly into the tests.
+Test data is stored separately in JSON files for:
+
+* Login credentials
+* Products
+* Sorting options
+* Checkout information
+
+This allows test data to be reused without hardcoding values directly into test cases.
 
 ## ✅ Test Scenarios
-
-Some of the scenarios covered in this project include:
 
 ### Login
 
 * Login with valid credentials
-* Validate successful login
-* Validate login-related behavior
+* Verify successful login
 
-### Products
+### Home Page
 
 * Verify Products page
-* Select products
+* Verify products are displayed
+* Verify cart icon
+* Sort products by:
+
+  * Name A-Z
+  * Name Z-A
+  * Price Low to High
+  * Price High to Low
+
+### Add to Cart
+
 * Add products to cart
-* Validate product information
+* Add multiple products
+* Verify cart badge
+* Verify product names in cart
 
-### Cart
+### Checkout
 
-* Verify added products
-* Verify correct product names
-* Verify products are displayed in the cart
-* Validate cart functionality
+* Enter customer information
+* Continue checkout
+* Verify order details
+* Complete order
+* Verify successful order completion
+
+### Logout
+
+* Logout from the application
+* Verify user is returned to the login page
+
+### End-to-End
+
+The E2E test combines the major functionalities into one complete flow:
+
+```text
+Login
+  ↓
+Home Page
+  ↓
+Sort Products
+  ↓
+Add Products
+  ↓
+Cart
+  ↓
+Checkout
+  ↓
+Complete Order
+  ↓
+Logout
+```
 
 ## ▶️ Getting Started
 
-### 1. Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/haniaadnan-10/Automation_Playwright.git
 ```
 
-### 2. Navigate to the Project
+### Navigate to the Project
 
 ```bash
 cd Automation_Playwright
 ```
 
-### 3. Install Dependencies
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 4. Install Playwright Browsers
+### Install Playwright Browsers
 
 ```bash
 npx playwright install
@@ -138,18 +191,24 @@ npx playwright test --headed
 Run a specific test file:
 
 ```bash
-npx playwright test tests/example.spec.js
+npx playwright test tests/Login.spec.js
 ```
 
-Run tests with the Playwright UI:
+Run the End-to-End test:
+
+```bash
+npx playwright test tests/EndToEndAction.spec.js
+```
+
+Run tests with Playwright UI:
 
 ```bash
 npx playwright test --ui
 ```
 
-## 📊 View Test Report
+## 📊 Test Report
 
-After test execution, open the Playwright HTML report:
+View the Playwright HTML report after test execution:
 
 ```bash
 npx playwright show-report
@@ -157,23 +216,27 @@ npx playwright show-report
 
 ## 🔄 CI/CD
 
-This project also includes a **GitHub Actions workflow** for automated test execution.
+The project includes a **GitHub Actions workflow** that automatically runs the Playwright test suite.
 
-The workflow allows Playwright tests to be executed automatically through GitHub Actions.
+```text
+.github/
+└── workflows/
+    └── playwright.yml
+```
 
 ## 🎯 Learning Objectives
 
-This project is part of my QA Automation learning journey. Through this project, I am working on:
+Through this project, I am developing practical experience in:
 
 * Web UI automation
-* Playwright fundamentals
+* Playwright
 * JavaScript for test automation
 * Page Object Model
-* Test data-driven automation
+* Data-driven testing
 * Assertions and validations
 * End-to-end testing
-* Test organization and maintainability
-* CI/CD automation with GitHub Actions
+* Test organization
+* CI/CD with GitHub Actions
 
 ## 👩‍💻 Author
 
@@ -181,8 +244,4 @@ This project is part of my QA Automation learning journey. Through this project,
 
 Software Engineering Student | QA Automation Enthusiast
 
-GitHub: [haniaadnan-10](https://github.com/haniaadnan-10)
-
----
-
-⭐ If you find this project useful, feel free to star the repository!
+GitHub: **haniaadnan-10**
