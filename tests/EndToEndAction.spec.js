@@ -21,7 +21,6 @@ test('End to End Action Test Case', async ({page}) => {
 
     //Home Page
     const homePage = new HomePage(page);
-    //const sortData = homePageData.sortOption[0];
 
     await expect(homePage.pageTitle).toHaveText('Products');
     await expect(homePage.products.first()).toBeVisible();
@@ -76,7 +75,7 @@ test('End to End Action Test Case', async ({page}) => {
     await logOut.logout();
 
     await expect(logOut.username).toBeVisible();
-   await expect(logOut.password).toBeVisible(); 
+    await expect(logOut.password).toBeVisible(); 
     await expect(logOut.loginBtn).toBeVisible();
     
 });

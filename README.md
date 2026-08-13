@@ -27,31 +27,32 @@ The project follows a structured automation framework using **Playwright** and t
 * **GitHub Actions**
 
 ## 📂 Project Structure
-
-```text
-Automation_Playwright/
+PlaywrightAutomation/
 │
-├── .github/
-│   └── workflows/
-│       └── ...
+├── .github/workflows/
+│   └── playwright.yml
 │
 ├── Pages/
-│   ├── LoginPage.js
-│   ├── ProductPage.js
-│   └── AddToCart.js
+│   ├── addToCart.js
+│   ├── checkout.js
+│   ├── homePage.js
+│   ├── loginPage.js
+│   └── logout.js
 │
 ├── testdata/
-│   ├── loginData.json
-│   └── addToCart.json
+│   ├── addToCart.json
+│   ├── checkout.json
+│   ├── homePage.json
+│   └── loginData.json
 │
 ├── tests/
-│   └── ...
+│   ├── AddToCart.spec.js
+│   ├── Checkout.spec.js
+│   ├── EndToEndAction.spec.js
+│   ├── HomePage.spec.js
+│   ├── Login.spec.js
+│   └── Logout.spec.js
 │
-├── .gitignore
-├── package.json
-├── package-lock.json
-└── playwright.config.js
-```
 
 ## 🧪 Testing Approach
 
