@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
-import LoginData from '../testdata/loginData.json';
-import LoginPage from '../Pages/loginPage';
-import HomePage from '../Pages/homePage';
-import homePageData from '../testdata/homePage.json';
-import AddToCart from '../Pages/addToCart';
-import addToCartData from '../testdata/addToCart.json';
-import checkout from '../Pages/checkout';
-import checkoutData from '../testdata/checkout.json'
-import logout from '../Pages/logout';
+import LoginData from '../../testdata/loginData.json';
+import LoginPage from '../../Pages/loginPage';
+import HomePage from '../../Pages/homePage';
+import homePageData from '../../testdata/homePage.json';
+import AddToCart from '../../Pages/addToCart';
+import addToCartData from '../../testdata/addToCart.json';
+import checkout from '../../Pages/checkout';
+import checkoutData from '../../testdata/checkout.json'
+import logout from '../../Pages/logout';
 
 test('End to End Action Test Case', async ({page}) => {
 

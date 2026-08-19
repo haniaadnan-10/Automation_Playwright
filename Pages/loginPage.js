@@ -36,7 +36,6 @@ class loginPage{
         await this.attachScreenshot('03 - Click Login');
         
     }
-
     
 }
 
