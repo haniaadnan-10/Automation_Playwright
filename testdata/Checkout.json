@@ -1,0 +1,17 @@
+{
+    "validInformation": [
+        {
+            "firstName": "Hania",
+            "lastName": "Adnan",
+            "postalCode": "0000"
+        }
+    ],
+    
+    "invalidInformation": [
+        {
+            "firstName": "Hania",
+            "lastName": "Adnan",
+            "postalCode": "&*%$@"
+        }
+    ]
+}

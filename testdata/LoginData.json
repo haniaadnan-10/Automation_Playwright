@@ -1,0 +1,51 @@
+{
+    "ValidUsers": [
+        {
+            "username": "standard_user",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Products"
+        },
+
+        {
+             "username": "problem_user",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Products"
+        },
+
+        {
+             "username": "performance_glitch_user",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Products"
+        },
+
+        {
+             "username": "visual_user",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Products"
+        }
+    ],
+
+    "InvalidUser": [
+        {
+            "username": "Hania",
+            "password": "Adnan",
+            "ExpectedMsg": "Epic sadface: Username and password do not match any user in this service"
+        },
+        {
+            "username": "locked_out_user",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Epic sadface: Sorry, this user has been locked out."
+        },
+        {
+            "username": "       ",
+            "password": "secret_sauce",
+            "ExpectedMsg": "Epic sadface: Username and password do not match any user in this service"
+        },
+        {
+            "username": "standard_user",
+            "password": "      ",
+            "ExpectedMsg": "Epic sadface: Username and password do not match any user in this service"
+        }
+
+    ]
+}
