@@ -1,41 +1,93 @@
 import { test } from '@playwright/test';
 import { UserAPI } from '../../Pages/UserApi.js';
-import userData from '../../testdata/userData.json';
 
 
-test('Complete User Flow - Register, Login, Get, PUT, PATCH and Delete', async ({ request }) => {
+//REGISTER
+test('POST - Register a New User', async ({ request }) => {
 
     const userAPI = new UserAPI(request);
 
-    //Generate User
     userAPI.generateUser();
 
+    await userAPI.registerUser();
+});
 
-    //Register
+
+//LOGIN
+test('POST - Login User', async ({ request }) => {
+
+    const userAPI = new UserAPI(request);
+
+    userAPI.generateUser();
+
     await userAPI.registerUser();
 
+    await userAPI.loginUser();
+});
 
-    //Login
+
+//GET ALL USERS
+test('GET - All Users', async ({ request }) => {
+
+    const userAPI = new UserAPI(request);
+
+    await userAPI.getAllUsers();
+});
+
+
+//GET USER BY USERNAME
+test('GET - User By Username', async ({ request }) => {
+
+    const userAPI = new UserAPI(request);
+
+    userAPI.generateUser();
+
+    await userAPI.registerUser();
+
+    await userAPI.getUserByUsername();
+});
+
+
+//PUT
+test('PUT - Replace User', async ({ request }) => {
+
+    const userAPI = new UserAPI(request);
+
+    userAPI.generateUser();
+
+    await userAPI.registerUser();
+
     await userAPI.loginUser();
 
-
-    //Get All Users
-    //await userAPI.getAllUsers();
-
-
-    //Get User By Username
-    await userAPI.getUserByUsername();
-
-
-    //PUT - Replace User
     await userAPI.replaceUser();
+});
 
 
-    //PATCH - Update User
+//PATCH
+test('PATCH - Update User', async ({ request }) => {
+
+    const userAPI = new UserAPI(request);
+
+    userAPI.generateUser();
+
+    await userAPI.registerUser();
+
+    await userAPI.loginUser();
+
     await userAPI.patchUser();
+});
 
 
-    //DELETE User
+//DELETE
+test('DELETE - Delete User', async ({ request }) => {
+
+    const userAPI = new UserAPI(request);
+
+    userAPI.generateUser();
+
+    await userAPI.registerUser();
+
+    await userAPI.loginUser();
+
     await userAPI.deleteUser();
-
 });
