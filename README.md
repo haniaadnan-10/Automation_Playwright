@@ -1,193 +1,207 @@
-﻿🎭 Playwright Automation Framework
+# 🎭 Playwright Automation Framework
 
-A Playwright automation testing framework built with JavaScript for end-to-end testing of the Sauce Labs Demo application.
+A **Playwright automation testing framework** built with **JavaScript** for end-to-end testing of the **Sauce Labs Demo application**.
 
-The framework follows the Page Object Model (POM) design pattern and includes reusable page classes, test data management, custom fixtures, utilities, Docker support, and GitHub Actions for CI/CD.
+The framework follows the **Page Object Model (POM)** design pattern and includes reusable page classes, test data management, custom fixtures, utilities, Docker support, and GitHub Actions for CI/CD.
 
-🚀 Tech Stack
-Playwright
-JavaScript
-Node.js
-Page Object Model (POM)
-GitHub Actions
-Docker
-JSON Test Data
-📌 Features
-End-to-end web automation using Playwright
-Page Object Model architecture
-Reusable page components
-Custom Playwright fixtures
-External test data
-Utility functions
-Smoke and regression testing
-Automated test execution with GitHub Actions
-Docker support
-Cross-browser testing capability
-Playwright test reports
-📂 Project Structure
-Automation_Playwright/
-│
-├── .github/
-│   └── workflows/          # GitHub Actions CI/CD workflows
-│
-├── Pages/                  # Page Object classes
-│
-├── fixtures/               # Custom Playwright fixtures
-│
-├── testdata/               # Test data
-│
-├── tests/                  # Test specifications
-│
-├── utilities/              # Reusable utility functions
-│
-├── Dockerfile              # Docker configuration
-├── .dockerignore
-├── .gitignore
-├── package.json            # Project dependencies and scripts
-├── package-lock.json
-├── playwright.config.js    # Playwright configuration
-└── README.md
+## 🚀 Tech Stack
 
-🧪 Test Scenarios
+- Playwright
+- JavaScript
+- Node.js
+- Page Object Model (POM)
+- GitHub Actions
+- Docker
+- JSON Test Data
 
-The framework is designed to automate important user workflows in the Sauce Labs Demo application, including:
+## 📌 Features
 
-Login functionality
-Product validation
-Product sorting
-Add to cart
-Remove from cart
-Checkout workflow
-Navigation
-Logout
-Application state management
-⚙️ Installation
-1. Clone the repository
-git clone https://github.com/haniaadnan-10/Automation_Playwright.git
+- End-to-end web automation using Playwright
+- Page Object Model architecture
+- Reusable page components
+- Custom Playwright fixtures
+- External test data
+- Utility functions
+- Smoke and regression testing
+- Automated test execution with GitHub Actions
+- Docker support
+- Cross-browser testing capability
+- Playwright test reports
 
-2. Navigate to the project
-cd Automation_Playwright
+## 📂 Project Structure
 
-3. Install dependencies
-npm install
+    Automation_Playwright/
+    │
+    ├── .github/
+    │   └── workflows/          # GitHub Actions CI/CD workflows
+    │
+    ├── Pages/                  # Page Object classes
+    │
+    ├── fixtures/               # Custom Playwright fixtures
+    │
+    ├── testdata/               # Test data
+    │
+    ├── tests/                  # Test specifications
+    │
+    ├── utilities/              # Reusable utility functions
+    │
+    ├── Dockerfile              # Docker configuration
+    ├── .dockerignore
+    ├── .gitignore
+    ├── package.json             # Project dependencies and scripts
+    ├── package-lock.json
+    ├── playwright.config.js     # Playwright configuration
+    └── README.md
 
-4. Install Playwright browsers
-npx playwright install
+## 🧪 Test Scenarios
 
-▶️ Run Tests
-Run all tests
-npx playwright test
+The framework automates important user workflows in the Sauce Labs Demo application:
 
-Run tests in headed mode
-npx playwright test --headed
+- Login functionality
+- Product validation
+- Product sorting
+- Add product to cart
+- Remove product from cart
+- Checkout workflow
+- Navigation
+- Logout
+- Application state management
 
-Run tests in debug mode
-npx playwright test --debug
+## ⚙️ Installation
 
-Run a specific test file
-npx playwright test tests/<test-file>.spec.js
+### 1. Clone the repository
 
-📊 Test Reports
+    git clone https://github.com/haniaadnan-10/Automation_Playwright.git
 
-After test execution, generate and view the Playwright HTML report:
+### 2. Navigate to the project
 
-npx playwright show-report
+    cd Automation_Playwright
 
+### 3. Install dependencies
+
+    npm install
+
+### 4. Install Playwright browsers
+
+    npx playwright install
+
+## ▶️ Run Tests
+
+### Run all tests
+
+    npx playwright test
+
+### Run tests in headed mode
+
+    npx playwright test --headed
+
+### Run tests in debug mode
+
+    npx playwright test --debug
+
+### Run a specific test file
+
+    npx playwright test tests/<test-file>.spec.js
+
+## 📊 Test Reports
+
+After test execution, open the Playwright HTML report:
+
+    npx playwright show-report
 
 The report provides:
 
-Test execution status
-Passed and failed tests
-Execution time
-Error details
-Screenshots and traces when configured
-🔄 CI/CD
+- Test execution status
+- Passed and failed tests
+- Execution time
+- Error details
+- Screenshots and traces when configured
 
-This project includes GitHub Actions workflows for automated test execution.
+## 🔄 CI/CD
+
+This project includes **GitHub Actions** workflows for automated test execution.
 
 The CI pipeline can automatically:
 
-Install Node.js dependencies
-Install Playwright browsers
-Execute the automated test suite
-Generate test results
+1. Install Node.js dependencies
+2. Install Playwright browsers
+3. Execute the automated test suite
+4. Generate test results
 
-This helps ensure that the automation suite can be executed consistently as part of the development workflow.
+## 🐳 Docker
 
-🐳 Docker
+The project includes a `Dockerfile` for running Playwright tests in a containerized environment.
 
-The project also includes a Dockerfile, allowing the Playwright tests to be executed in a containerized environment.
+### Build Docker image
 
-Example:
+    docker build -t playwright-tests .
 
-docker build -t playwright-tests .
+### Run tests using Docker
 
+    docker run --rm playwright-tests
 
-Run the container:
+## 🧱 Page Object Model
 
-docker run --rm playwright-tests
-
-🧱 Page Object Model
-
-The framework uses the Page Object Model to separate test logic from page-specific locators and actions.
+The framework uses the **Page Object Model (POM)** to separate test logic from page-specific locators and actions.
 
 This provides:
 
-Better code organization
-Reusable methods
-Easier maintenance
-Reduced duplication
-More readable test cases
+- Better code organization
+- Reusable methods
+- Easier maintenance
+- Reduced code duplication
+- More readable test cases
 
-Example structure:
+### Architecture
 
-tests/
-   ↓
-Page Objects
-   ↓
-Locators & Actions
-   ↓
-Application Under Test
+    Test Cases
+         ↓
+    Page Objects
+         ↓
+    Locators & Actions
+         ↓
+    Application Under Test
 
-📋 Test Data
+## 📋 Test Data
 
-Test data is maintained separately inside the testdata directory.
+Test data is maintained separately inside the `testdata` directory.
 
 Keeping test data outside the test scripts makes the framework easier to maintain and allows data to be reused across multiple scenarios.
 
-🧩 Fixtures & Utilities
-Fixtures
+## 🧩 Fixtures & Utilities
 
-The fixtures directory contains reusable Playwright test fixtures that help with common test setup and reduce duplicated code.
+### Fixtures
 
-Utilities
+The `fixtures` directory contains reusable Playwright fixtures that help with common test setup and reduce duplicated code.
 
-The utilities directory contains reusable helper functions that can be shared across different test cases.
+### Utilities
 
-🎯 Testing Approach
+The `utilities` directory contains reusable helper functions shared across different test cases.
 
-This project can be used for:
+## 🎯 Testing Approach
 
-Smoke Testing – Verify critical application functionality
-Regression Testing – Validate existing functionality after changes
-End-to-End Testing – Validate complete user workflows
-Functional Testing – Verify application behavior against requirements
-📈 Future Improvements
+This framework supports:
 
-Possible future enhancements include:
+- **Smoke Testing** – Verify critical application functionality
+- **Regression Testing** – Validate existing functionality after changes
+- **End-to-End Testing** – Validate complete user workflows
+- **Functional Testing** – Verify application behavior
 
-Parallel test execution
-Multi-environment configuration
-API automation
-Enhanced Allure reporting
-Test tagging and filtering
-Improved failure screenshots and traces
-Additional negative test scenarios
-Expanded browser coverage
-Integration with additional CI/CD platforms
-👩‍💻 Author
+## 📈 Future Improvements
 
-Hania Adnan
+- Parallel test execution
+- Multi-environment configuration
+- API automation
+- Enhanced Allure reporting
+- Test tagging and filtering
+- Improved failure screenshots and traces
+- Additional negative test scenarios
+- Expanded browser coverage
+- Integration with additional CI/CD platforms
+
+## 👩‍💻 Author
+
+**Hania Adnan**
 
 QA / Test Automation Engineer
 
