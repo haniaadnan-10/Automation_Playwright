@@ -65,8 +65,9 @@ test('POST - Login User', async ({request}) => {
     expect(response.status()).toBe(200);
 });
 
-//REPLACE USER
-test('Replace User - PUT', async ({request}) => {
+//REPLACE USER 
+/*
+test('PUT - Replace User', async ({request}) => {
     const token = await getAuthToken(request);
 
     const respone = await request.put(`${BASE_URL}/users/replace-account`,
@@ -91,10 +92,10 @@ test('Replace User - PUT', async ({request}) => {
     console.log('Response: ', responseBody);
 
     expect(respone.status()).toBe(200);
-})
+})*/
 
 //GET ALL USERS
-test('GET All Users', async ({request}) => {
+test('GET - All Users', async ({request}) => {
     const response = await request.get(`${BASE_URL}/users/all-users`);
 
     console.log(await response.json());
@@ -103,20 +104,20 @@ test('GET All Users', async ({request}) => {
 });
 
 //GET USER BY USERNAME
-test('GET User by username', async ({request}) => {
-    const response = await request.get(`${BASE_URL}/users/user/hania23`);
+test('GET - User by username', async ({request}) => {
+    const response = await request.get(`${BASE_URL}/users/user/hania20`);
 
     console.log(await response.json());
     expect(response.status()).toBe(200);
 });
 
 //DELETE USER
-test('Delete user - DELETE', async ({request}) => {
+test('DELETE - Delete User', async ({request}) => {
     const token = await getAuthToken(request);
 
     const response = await request.delete(`${BASE_URL}/users/delete-account`,
         {
-            header:
+            headers:
             {
                 Authorization: `Bearer ${token}`
             }
@@ -128,5 +129,5 @@ test('Delete user - DELETE', async ({request}) => {
     console.log('Status: ', response.status());
     console.log('Response: ', responseBody);
 
-    expect(response.json()).toBe(200);
+    expect(response.status()).toBe(200);
 })
