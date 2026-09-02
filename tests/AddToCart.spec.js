@@ -1,9 +1,9 @@
 import { test, expect } from '../fixtures/testSetup.js';
 import { attachStepScreenshot } from '../utilities/screenshotUtil.js';
-import LoginData from '../testdata/loginData.json';
-import LoginPage from '../Pages/loginPage.js';
-import addToCartData from '../testdata/addToCart.json';
-import addToCart from '../Pages/addToCart';
+import LoginData from '../testdata/LoginData.json';
+import LoginPage from '../Pages/LoginPage.js';
+import addToCartData from '../testdata/AddToCart.json';
+import addToCart from '../Pages/AddToCart.js';
 
 
 test.describe('Add to Cart - Positive Test Cases', () => {

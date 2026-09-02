@@ -1,6 +1,6 @@
 import { test, expect } from '../fixtures/testSetup.js';
-import loginData from '../testdata/loginData.json';
-import loginPage from '../Pages/loginPage';
+import loginData from '../testdata/LoginData.json';
+import loginPage from '../Pages/LoginPage.js';
 
 test.describe('Login Test Case - Positive Test Cases', ()=> {
    //Valid username and valid password

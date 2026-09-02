@@ -1,13 +1,13 @@
 import { test, expect } from '../../fixtures/testSetup.js';
 import { attachStepScreenshot } from '../../utilities/screenshotUtil.js';
-import LoginData from '../../testdata/loginData.json';
-import LoginPage from '../../Pages/loginPage';
-import HomePage from '../../Pages/homePage';
-import AddToCart from '../../Pages/addToCart';
-import addToCartData from '../../testdata/addToCart.json';
-import checkout from '../../Pages/checkout';
-import checkoutData from '../../testdata/checkout.json'
-import logout from '../../Pages/logout';
+import LoginData from '../../testdata/LoginData.json';
+import LoginPage from '../../Pages/LoginPage.js';
+import HomePage from '../../Pages/HomePage.js';
+import AddToCart from '../../Pages/AddToCart.js';
+import addToCartData from '../../testdata/AddToCart.json';
+import checkout from '../../Pages/Checkout.js';
+import checkoutData from '../../testdata/Checkout.json'
+import logout from '../../Pages/Logout.js';
 
 test.describe('Smoke Testing', () => {
     test('Smoke Testing', async ({page}) => {

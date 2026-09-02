@@ -1,11 +1,11 @@
 import { test, expect } from '../fixtures/testSetup.js';
 import { attachStepScreenshot } from '../utilities/screenshotUtil.js';
-import LoginData from '../testdata/loginData.json';
-import LoginPage from '../Pages/loginPage.js';
-import AddToCart from '../Pages/addToCart';
-import addToCartData from '../testdata/addToCart.json';
-import checkoutData from '../testdata/checkout.json'
-import checkout from '../Pages/checkout';
+import LoginData from '../testdata/LoginData.json';
+import LoginPage from '../Pages/LoginPage.js';
+import AddToCart from '../Pages/AddToCart.js';
+import addToCartData from '../testdata/AddToCart.json';
+import checkoutData from '../testdata/Checkout.json'
+import checkout from '../Pages/Checkout.js';
 
 test.describe('Checkout Functionality - Positive Test Cases', () => {
 

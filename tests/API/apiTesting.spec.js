@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { UserAPI } from '../../Pages/UserApi.js';
+import { UserAPI } from '../../Pages/userAPI.js';
 
 
 //REGISTER

@@ -1,8 +1,8 @@
 import { test, expect } from '../fixtures/testSetup.js';
 import { attachStepScreenshot } from '../utilities/screenshotUtil.js';
-import LoginData from '../testdata/loginData.json';
-import LoginPage from '../Pages/loginPage';
-import HomePage from '../Pages/homePage';
+import LoginData from '../testdata/LoginData.json';
+import LoginPage from '../Pages/LoginPage.js';
+import HomePage from '../Pages/HomePage.js';
 import homePageData from '../testdata/homePage.json';
 
 test.describe('Home Page - Positive Test Cases', () => {

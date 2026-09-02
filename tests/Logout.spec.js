@@ -1,8 +1,8 @@
 import { test, expect } from '../fixtures/testSetup.js';
 import { attachStepScreenshot } from '../utilities/screenshotUtil.js';
-import LoginData from '../testdata/loginData.json';
-import LoginPage from '../Pages/loginPage.js';
-import logout from '../Pages/logout';
+import LoginData from '../testdata/LoginData.json';
+import LoginPage from '../Pages/LoginPage.js';
+import logout from '../Pages/Logout.js';
 
 
 test.describe('Logout Functionality', () => {
