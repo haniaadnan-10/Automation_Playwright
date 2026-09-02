@@ -1,133 +1,41 @@
-import {test, expect} from '@playwright/test';
+import { test } from '@playwright/test';
+import { UserAPI } from '../../Pages/UserApi.js';
+import userData from '../../testdata/userData.json';
 
-const BASE_URL = 'https://api-testing-postman.vercel.app/api/v1';
 
-const timeStamp = Date.now();
+test('Complete User Flow - Register, Login, Get, PUT, PATCH and Delete', async ({ request }) => {
 
-const registerUserData = {
-    "fullname": 'Hania',
-    "email": `hania${timeStamp}@gmail.com`,
-    "username": `hania_${timeStamp}`,
-    "password": '12345'
-};
+    const userAPI = new UserAPI(request);
 
-const loginData = {
-    "username": 'hania23',
-    "email": 'hania14@gmail.com',
-    "password": 'hania123'
-};
+    //Generate User
+    userAPI.generateUser();
 
-async function getAuthToken(request) {
-    const response = await request.post(`${BASE_URL}/users/login`,
-        {
-            data: loginData
-        }
-    );
 
-    expect(response.status()).toBe(200);
+    //Register
+    await userAPI.registerUser();
 
-    const responseBody = await response.json();
-    console.log('Response Login: ', responseBody);
 
-    return responseBody.token;
+    //Login
+    await userAPI.loginUser();
 
-}
 
-//REGISTER A NEW USER
-test('POST - Register a new User', async ({request}) => {
-    const response = await request.post(`${BASE_URL}/users/register`, 
-        {
-        data: registerUserData
-        }   
-    );
+    //Get All Users
+    //await userAPI.getAllUsers();
 
-    const responeBody = await response.json();
 
-    console.log('Status: ', response.status());
-    console.log('Response: ', responeBody);
+    //Get User By Username
+    await userAPI.getUserByUsername();
 
-    expect(response.status()).toBe(201);
-});
 
-//LOGIN USER
-test('POST - Login User', async ({request}) => {
-    const response = await request.post(`${BASE_URL}/users/login`,
-        {
-            data: loginData
-        }
-    );
+    //PUT - Replace User
+    await userAPI.replaceUser();
 
-    const responseBody = await response.json();
 
-    console.log('Status: ', response.status());
-    console.log('Response: ', responseBody);
+    //PATCH - Update User
+    await userAPI.patchUser();
 
-    expect(response.status()).toBe(200);
-});
 
-//REPLACE USER 
-/*
-test('PUT - Replace User', async ({request}) => {
-    const token = await getAuthToken(request);
-
-    const respone = await request.put(`${BASE_URL}/users/replace-account`,
-        {
-            headers: 
-            {
-                Authorization: `Bearer ${token}`
-            },
-        
-            data : 
-            {
-                "fullname": "Hania",
-                "email": "hania20@gmail.com",
-                "username": "hania20"
-            }
-        }  
-    );
-
-    const responseBody = await respone.json();
-
-    console.log('Status: ', respone.status());
-    console.log('Response: ', responseBody);
-
-    expect(respone.status()).toBe(200);
-})*/
-
-//GET ALL USERS
-test('GET - All Users', async ({request}) => {
-    const response = await request.get(`${BASE_URL}/users/all-users`);
-
-    console.log(await response.json());
-    expect(response.status()).toBe(200);
+    //DELETE User
+    await userAPI.deleteUser();
 
 });
-
-//GET USER BY USERNAME
-test('GET - User by username', async ({request}) => {
-    const response = await request.get(`${BASE_URL}/users/user/hania20`);
-
-    console.log(await response.json());
-    expect(response.status()).toBe(200);
-});
-
-//DELETE USER
-test('DELETE - Delete User', async ({request}) => {
-    const token = await getAuthToken(request);
-
-    const response = await request.delete(`${BASE_URL}/users/delete-account`,
-        {
-            headers:
-            {
-                Authorization: `Bearer ${token}`
-            }
-        }
-    );
-
-    const responseBody = await response.json();
-
-    console.log('Status: ', response.status());
-    console.log('Response: ', responseBody);
-
-    expect(response.status()).toBe(200);
-})
