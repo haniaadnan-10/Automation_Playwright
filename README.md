@@ -197,13 +197,10 @@ This framework supports:
 - Improved failure screenshots and traces
 - Additional negative test scenarios
 - Expanded browser coverage
-- Integration with additional CI/CD platforms
+- Integration with CI (Jenkins) and Docker (CD) platforms.
 
 ## 👩‍💻 Author
 
 **Hania Adnan**
 
 QA / Test Automation Engineer
-
-
-If you find this project useful, feel free to ⭐ the repository.
