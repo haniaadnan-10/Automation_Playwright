@@ -197,7 +197,6 @@ This framework supports:
 - Improved failure screenshots and traces
 - Additional negative test scenarios
 - Expanded browser coverage
-- Integration with CI (Jenkins) and Docker (CD) platforms.
 
 ## 👩‍💻 Author
 
